@@ -3,6 +3,8 @@ package edu.wctc.croquet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -28,12 +30,12 @@ public class HomeController {
         /**
          * Uncomment this section when you're ready to test your GlossaryTerm class.
          */
-//        try {
-//            terms = mapper.readValue(Paths.get("croquetGlossary.json").toFile(), GlossaryTerm[].class);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            terms = new GlossaryTerm[0];
-//        }
+        try {
+            terms = mapper.readValue(Paths.get("croquetGlossary.json").toFile(), GlossaryTerm[].class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            terms = new GlossaryTerm[0];
+        }
 
     }
 
@@ -41,9 +43,12 @@ public class HomeController {
     public String showRulesPage(Model model) {
         model.addAttribute("pageTitle", "Rules of Golf Croquet");
 
+
         /**
          * Add the array of Strings to the model
          */
+
+        model.addAttribute("myRules", rules);
 
         return "croquet-rules";
     }
@@ -55,6 +60,15 @@ public class HomeController {
         /**
          * Add the array of GlossaryTerm objects to the model
          */
+//        GlossaryTerm glossaryTerm = new GlossaryTerm();
+//        glossaryTerm.getTerm();
+//        glossaryTerm.getDefinition();
+//        glossaryTerm.getRegulation();
+//        glossaryTerm.setDefinition(glossaryTerm.getDefinition());
+        model.addAttribute("myTerms", terms);
+
+
+
 
         return "croquet-glossary";
     }
