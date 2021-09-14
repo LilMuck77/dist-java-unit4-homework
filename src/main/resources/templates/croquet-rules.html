@@ -9,10 +9,8 @@
 
     <!-- Create an unordered list of String objects here -->
         <ul class="rules">
-            <li th:each="rule : ${myRules}">
-
-            <li th:text="${rule}"></li>
-
+            <li th:each="rule : ${myRules}"
+            th:text="${rule}">
             </li>
 
         </ul>

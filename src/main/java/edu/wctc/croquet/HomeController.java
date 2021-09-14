@@ -60,11 +60,7 @@ public class HomeController {
         /**
          * Add the array of GlossaryTerm objects to the model
          */
-//        GlossaryTerm glossaryTerm = new GlossaryTerm();
-//        glossaryTerm.getTerm();
-//        glossaryTerm.getDefinition();
-//        glossaryTerm.getRegulation();
-//        glossaryTerm.setDefinition(glossaryTerm.getDefinition());
+
         model.addAttribute("myTerms", terms);
 
 
